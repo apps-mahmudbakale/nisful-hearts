@@ -1,0 +1,34 @@
+{
+	"folders": [
+		{
+			"path": "../../../clinics"
+		},
+		{
+			"path": "../../../caliphatemart"
+		},
+		{
+			"path": "../../../karatoong"
+		},
+		{
+			"path": "../../../huda"
+		},
+		{
+			"path": "../../../inec"
+		},
+		{
+			"path": "../../../institute"
+		},
+		{
+			"path": "../../../sispay"
+		},
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../../elect-data"
+		}
+	],
+	"settings": {
+		"notebook.output.textLineLimit": 3000
+	}
+}
