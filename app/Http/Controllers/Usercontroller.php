@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\UserVerify;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class Usercontroller extends Controller
 {
@@ -35,7 +38,20 @@ class Usercontroller extends Controller
      */
     public function store(Request $request)
     {
+        $token = Str::random(64);
         $user = User::create($request->all());
+
+        UserVerify::create([
+            'user_id' => $user->id, 
+            'token' => $token
+          ]);
+
+      Mail::send('emails.emailVerificationEmail', ['token' => $token], function($message) use($request){
+            $message->to($request->email);
+            $message->subject('Email Verification Mail');
+        });
+       
+      return redirect("dashboard")->withSuccess('Great! You have Successfully loggedin');
     }
 
     /**

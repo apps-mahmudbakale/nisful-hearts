@@ -24,3 +24,7 @@ Route::get('/get-started', function () {
 
 
 Route::resource('users', UserController::class);
+Auth::routes(['verify' => true]);
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('account/verify/{token}', [AuthController::class, 'verifyAccount'])->name('user.verify');
